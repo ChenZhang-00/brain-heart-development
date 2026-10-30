@@ -1,0 +1,68 @@
+{
+  "schema": "dbhi_v2_centered_1",
+  "config": {
+    "flims_eeg": {
+      "delta": [
+        1,
+        4
+      ],
+      "theta": [
+        4,
+        7
+      ],
+      "alpha": [
+        7,
+        12
+      ],
+      "beta": [
+        12,
+        30
+      ]
+    },
+    "window": 15,
+    "fs_bhi": 4,
+    "tfr_eeg_win": 2,
+    "bth_alignment": "window_center",
+    "rr_gap_warning_s": 2.0,
+    "edge_gap_warning_s": 5.0
+  },
+  "band_order": [
+    "delta",
+    "theta",
+    "alpha",
+    "beta"
+  ],
+  "conditions": [
+    "fear",
+    "neutral",
+    "happy"
+  ],
+  "hrv_bands_hz": {
+    "LF": [
+      0.04,
+      0.15
+    ],
+    "HF": [
+      0.15,
+      0.8
+    ]
+  },
+  "ipfm_centers_hz": {
+    "LF": 0.083,
+    "HF": 0.32
+  },
+  "sources_sha256": {
+    "pipeline.py": "9e837857238b01e773ab789423696dd25be6b0037037fdba60d4c2b0dd8ec748",
+    "model.py": "ba86b6f1ffc01d2892a4db7dcecd7710efd57653fc1ba44b833c0d65e98a591c",
+    "utils.py": "15ead5e9c88ed0050231bbf26de1b1b5ab4f16c0d87bf38e2803d6b6ef840ef0"
+  },
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.14.1",
+    "numba": "0.67.0",
+    "h5py": "3.11.0",
+    "joblib": "1.4.2"
+  },
+  "python": "3.11.4",
+  "normalization": "per_clip_minmax_as_in_original_model"
+}

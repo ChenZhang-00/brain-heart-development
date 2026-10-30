@@ -1,0 +1,46 @@
+/* Display settings for this notebook in JupyterLab and Jupyter Notebook. */
+:is(.jp-Notebook, #notebook-container):has(#dbh-notebook-style) {
+  --jp-code-font-size: 16px;
+  --jp-content-font-size1: 16px;
+}
+
+:is(.jp-Notebook, #notebook-container):has(#dbh-notebook-style)
+  :is(.jp-RenderedHTMLCommon, .text_cell_render) {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+:is(.jp-Notebook, #notebook-container):has(#dbh-notebook-style)
+  :is(.jp-RenderedText pre, .output_area pre, .CodeMirror, .cm-editor) {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+:is(.jp-Notebook, #notebook-container):has(#dbh-notebook-style)
+  :is(.jp-RenderedText pre, .output_area pre) {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+:is(.jp-Notebook, #notebook-container):has(#dbh-notebook-style) .jp-Stdin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+:is(.jp-Notebook, #notebook-container):has(#dbh-notebook-style)
+  :is(.jp-Stdin-prompt, .jp-Stdin-input, .raw_input_container, .raw_input) {
+  font-size: 18px !important;
+  line-height: 1.5;
+}
+
+:is(.jp-Notebook, #notebook-container):has(#dbh-notebook-style)
+  :is(.jp-Stdin-input, .raw_input) {
+  box-sizing: border-box;
+  width: min(42rem, 100%);
+  min-width: 0;
+  margin: 0;
+  padding: 6px 8px;
+  flex: 0 1 auto;
+}

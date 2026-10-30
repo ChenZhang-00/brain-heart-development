@@ -1,0 +1,38 @@
+{
+  "state": "complete",
+  "bands": [
+    "delta",
+    "theta",
+    "alpha",
+    "beta"
+  ],
+  "subjects": 148,
+  "seconds": 191.2,
+  "summary": [
+    {
+      "band": "delta",
+      "candidate_clusters": 139,
+      "significant_clusters": 73,
+      "series_tested": 72
+    },
+    {
+      "band": "theta",
+      "candidate_clusters": 151,
+      "significant_clusters": 81,
+      "series_tested": 72
+    },
+    {
+      "band": "alpha",
+      "candidate_clusters": 183,
+      "significant_clusters": 79,
+      "series_tested": 72
+    },
+    {
+      "band": "beta",
+      "candidate_clusters": 147,
+      "significant_clusters": 76,
+      "series_tested": 72
+    }
+  ],
+  "updated": "2026-10-30 22:58:52"
+}

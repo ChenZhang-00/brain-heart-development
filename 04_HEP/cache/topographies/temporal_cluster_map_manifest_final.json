@@ -1,0 +1,95 @@
+{
+  "maps": [
+    {
+      "cluster_id": 1,
+      "group": "5-6",
+      "region": "Frontal",
+      "pair": "happy - neutral",
+      "source_cluster_ids": "1;2",
+      "source_cluster_count": 2,
+      "source_window": "100-300;300-500",
+      "source_time_ranges": "198-300;300-412",
+      "source_cluster_p_values": "0.0094990500949905;0.0088991100889910992",
+      "t_start": 198.0,
+      "t_end": 412.0,
+      "cluster_p": null,
+      "n_subjects": 50,
+      "n_time_samples": 108
+    },
+    {
+      "cluster_id": 2,
+      "group": "5-6",
+      "region": "Central",
+      "pair": "fear - neutral",
+      "source_cluster_ids": "3",
+      "source_cluster_count": 1,
+      "source_window": "300-500",
+      "source_time_ranges": "318-408",
+      "source_cluster_p_values": "0.0135986401359864",
+      "t_start": 318.0,
+      "t_end": 408.0,
+      "cluster_p": 0.0135986401359864,
+      "n_subjects": 50,
+      "n_time_samples": 46
+    },
+    {
+      "cluster_id": 3,
+      "group": "5-6",
+      "region": "Posterior",
+      "pair": "fear - happy",
+      "source_cluster_ids": "4",
+      "source_cluster_count": 1,
+      "source_window": "300-500",
+      "source_time_ranges": "300-364",
+      "source_cluster_p_values": "0.039596040395960402",
+      "t_start": 300.0,
+      "t_end": 364.0,
+      "cluster_p": 0.0395960403959604,
+      "n_subjects": 50,
+      "n_time_samples": 33
+    },
+    {
+      "cluster_id": 4,
+      "group": "7-8",
+      "region": "Central",
+      "pair": "fear - happy",
+      "source_cluster_ids": "5",
+      "source_cluster_count": 1,
+      "source_window": "100-300",
+      "source_time_ranges": "100-178",
+      "source_cluster_p_values": "0.023597640235976401",
+      "t_start": 100.0,
+      "t_end": 178.0,
+      "cluster_p": 0.0235976402359764,
+      "n_subjects": 49,
+      "n_time_samples": 40
+    }
+  ],
+  "layout": "four_individual_panels",
+  "figure_files": [
+    "Figure_3_topography_5-6_frontal_happy-neutral_198-412ms.png",
+    "Figure_3_topography_5-6_central_fearful-neutral_318-408ms.png",
+    "Figure_3_topography_5-6_posterior_fearful-happy_300-364ms.png",
+    "Figure_3_topography_7-8_central_fearful-happy_100-178ms.png"
+  ],
+  "frontal_union_samples": 108,
+  "shared_300ms_sample_counted_once": true,
+  "new_statistical_tests": false,
+  "p_values_displayed": false,
+  "colorbars": 0,
+  "shared_color_limits_uV": [
+    -0.9,
+    0.9
+  ],
+  "channels_per_map": 63,
+  "source_sha256": {
+    "04_HEP/outputs/manuscript/averages/chan_means.npz": "d88cf62bd66f1ed5955bcbcfe9d62ae2d0c6755767286311f3763470dc0fa365",
+    "04_HEP/cache/condition_within_group_ecgreg_final.csv": "4746d8d8c391451638f29b763e4444a8724acca604049a8061bca9c38c0abd1b"
+  },
+  "figure_sha256": {
+    "Figure_3_topography_5-6_frontal_happy-neutral_198-412ms.png": "abe9ac88e4c10910fe0ee212ab21376f9ffd3e8f128b91595ddde6d4017a702a",
+    "Figure_3_topography_5-6_central_fearful-neutral_318-408ms.png": "da0eb92b2df880fc7ac4704c7e44cb352293566c3210fd0921f73326d9656621",
+    "Figure_3_topography_5-6_posterior_fearful-happy_300-364ms.png": "a4b4714f980872135f6d220448e3471ae02168e980e34451d201a2120f11a87e",
+    "Figure_3_topography_7-8_central_fearful-happy_100-178ms.png": "7a41dff725b5cfc82d364cc8e838d9896c1869a77ad405dbd12ca5d0afa7fbfc"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "state": "complete",
+  "expected": 148,
+  "completed": 148,
+  "failed": 0,
+  "invalid_cache": 0,
+  "fingerprint": "6d62788e1193e1793dd42389a1b5fefd938c0aec3bbd7b691cd0eb34c0475952",
+  "flagged_input_clips": 1
+}

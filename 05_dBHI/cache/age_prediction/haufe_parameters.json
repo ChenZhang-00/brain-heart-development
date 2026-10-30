@@ -1,0 +1,48 @@
+{
+ "features": "electrode-level top-30% means, 504 per model",
+ "n": 148,
+ "n_perm": 1000,
+ "n_boot": 1000,
+ "seed": 0,
+ "observed_cv_repeats": 5,
+ "permutation_cv_repeats": 1,
+ "bootstrap": "lambda fixed at full-sample value",
+ "log10_bth": true,
+ "log10_htb": true,
+ "htb_floor": 0.00034448521910235286,
+ "transform_order": "per electrode: (htb floor) -> log10 -> temporal aggregation; no spatial averaging",
+ "models": {
+  "bth fear": {
+   "r_cv_raw": 0.2604545291459886,
+   "r_cv_centred": 0.27466308727172745,
+   "perm_p_centred": 0.001998001998001998,
+   "mae_centred_yr": 1.369710533967053,
+   "lambda_full": 1000.0,
+   "n_ci_excl0": 60
+  },
+  "bth happy": {
+   "r_cv_raw": 0.1459979118390954,
+   "r_cv_centred": 0.08333122587108033,
+   "perm_p_centred": 0.07292707292707293,
+   "mae_centred_yr": 1.4388033871692538,
+   "lambda_full": 3162.2776601683795,
+   "n_ci_excl0": 54
+  },
+  "htb fear": {
+   "r_cv_raw": 0.2590509768711866,
+   "r_cv_centred": 0.23527613541751502,
+   "perm_p_centred": 0.002997002997002997,
+   "mae_centred_yr": 1.3859640247681215,
+   "lambda_full": 1000.0,
+   "n_ci_excl0": 62
+  },
+  "htb happy": {
+   "r_cv_raw": 0.1712917242369179,
+   "r_cv_centred": 0.179547251639258,
+   "perm_p_centred": 0.015984015984015984,
+   "mae_centred_yr": 1.4016648474861693,
+   "lambda_full": 1000.0,
+   "n_ci_excl0": 24
+  }
+ }
+}

@@ -1,0 +1,45 @@
+{
+  "stage": "topographies",
+  "notebook": "run_hep.ipynb",
+  "created_utc": "2026-10-30T14:50:11.094744+00:00",
+  "n_subjects": 148,
+  "data_version": "ECG-regressed",
+  "parameters": {
+    "new_statistical_tests": false,
+    "n_display_maps": 4,
+    "frontal_union_ms": [
+      198,
+      412
+    ],
+    "frontal_union_unique_samples": 108,
+    "shared_300ms_sample_counted_once": true
+  },
+  "inputs": [
+    {
+      "file": "00_data/participants.csv",
+      "sha256": "3709009e54d5bc54b5b056586ca02a4be3499edc5395e9823a1e92e0a01cd16f"
+    },
+    {
+      "file": "04_HEP/outputs/manuscript/averages/roi_waves_ecgreg.mat",
+      "sha256": "05e73b47fc51f08a23965b59ed860629d4efa81da8bfb451cf1718ef59ee9ba2"
+    },
+    {
+      "file": "04_HEP/cache/condition_within_group_ecgreg_final.csv",
+      "sha256": "4746d8d8c391451638f29b763e4444a8724acca604049a8061bca9c38c0abd1b"
+    },
+    {
+      "file": "04_HEP/outputs/manuscript/averages/chan_means.npz",
+      "sha256": "d88cf62bd66f1ed5955bcbcfe9d62ae2d0c6755767286311f3763470dc0fa365"
+    }
+  ],
+  "software": {
+    "python": "3.12.7",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "statsmodels": "0.14.6",
+    "h5py": "3.16.0",
+    "matplotlib": "3.10.8",
+    "mne": "1.11.0"
+  }
+}

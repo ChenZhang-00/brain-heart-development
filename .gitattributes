@@ -1,0 +1,16 @@
+00_data/raw_data/sub-001_movie.eeg filter=lfs diff=lfs merge=lfs -text
+01_preprocessing/outputs/manuscript/eeg/cleaned/*.mat filter=lfs diff=lfs merge=lfs -text
+01_preprocessing/outputs/manuscript/eeg/band_power/*.mat filter=lfs diff=lfs merge=lfs -text
+01_preprocessing/outputs/manuscript/ecg/r_peaks/*.npz filter=lfs diff=lfs merge=lfs -text
+01_preprocessing/outputs/manuscript/ecg/hrv/ecg_ts.npz filter=lfs diff=lfs merge=lfs -text
+05_dBHI/outputs/manuscript/model/*_dbhi.npz filter=lfs diff=lfs merge=lfs -text
+04_HEP/outputs/manuscript/ecg_trimmed/*.npz filter=lfs diff=lfs merge=lfs -text
+04_HEP/outputs/manuscript/averages/*.mat filter=lfs diff=lfs merge=lfs -text
+04_HEP/outputs/manuscript/averages/*.npz filter=lfs diff=lfs merge=lfs -text
+04_HEP/outputs/demo/ecg_trimmed/*.npz filter=lfs diff=lfs merge=lfs -text
+04_HEP/outputs/demo/preprocessed_ecgreg/*.mat filter=lfs diff=lfs merge=lfs -text
+04_HEP/outputs/demo/hep_epochs_ecgreg/*.mat filter=lfs diff=lfs merge=lfs -text
+02_eliciting_effects/cache/**/*.npz filter=lfs diff=lfs merge=lfs -text
+04_HEP/cache/**/*.npz filter=lfs diff=lfs merge=lfs -text
+05_dBHI/cache/**/*.npz filter=lfs diff=lfs merge=lfs -text
+results/**/*.png filter=lfs diff=lfs merge=lfs -text

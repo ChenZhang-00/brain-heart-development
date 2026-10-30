@@ -1,0 +1,11 @@
+{
+  "n": 148,
+  "cache_fingerprint": "6d62788e1193e1793dd42389a1b5fefd938c0aec3bbd7b691cd0eb34c0475952",
+  "participants_sha256": "3709009e54d5bc54b5b056586ca02a4be3499edc5395e9823a1e92e0a01cd16f",
+  "epochs_sha256": "9b4e09ddc8c09702b109a75feabaf83ad575c82e260785835887640f193e27e9",
+  "contrast": "top30 minus bottom30; fearful/happy clips only",
+  "log10_bth": true,
+  "log10_htb": true,
+  "htb_floor": 0.00034448521910235286,
+  "transform_order": "per electrode: (htb floor) -> log10 -> ROI spatial mean -> temporal aggregation"
+}

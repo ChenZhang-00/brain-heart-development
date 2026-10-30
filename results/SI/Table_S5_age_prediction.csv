@@ -1,0 +1,5 @@
+Direction,Movie,Features,r,p,MAE (years),r (centred),p (centred),"MAE (centred, years)",Features with CI excluding 0
+Brain→Heart,Fearful,504,0.26,0.002,1.37,0.27,0.002,1.37,60
+Brain→Heart,Happy,504,0.15,0.031,1.42,0.08,0.073,1.44,54
+Heart→Brain,Fearful,504,0.26,0.004,1.37,0.24,0.003,1.39,62
+Heart→Brain,Happy,504,0.17,0.016,1.40,0.18,0.016,1.40,24

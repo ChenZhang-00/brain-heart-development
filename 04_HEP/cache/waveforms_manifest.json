@@ -1,0 +1,50 @@
+{
+  "stage": "waveforms",
+  "notebook": "run_hep.ipynb",
+  "created_utc": "2026-10-30T14:50:07.857997+00:00",
+  "n_subjects": 148,
+  "data_version": "ECG-regressed",
+  "parameters": {
+    "n_tests": 54,
+    "n_permutations_per_test": 10000,
+    "seed_reset_per_test": 0,
+    "alpha_two_sided": 0.05,
+    "minimum_cluster_samples": 10,
+    "minimum_cluster_ms": 20,
+    "windows_ms_inclusive": [
+      [
+        100,
+        300
+      ],
+      [
+        300,
+        500
+      ]
+    ],
+    "window_boundary_300ms_in_both_tests": true,
+    "cluster_correction": "maximum absolute cluster mass within each test",
+    "correction_across_tests": false,
+    "n_candidate_clusters": 16,
+    "n_significant_clusters": 5
+  },
+  "inputs": [
+    {
+      "file": "00_data/participants.csv",
+      "sha256": "3709009e54d5bc54b5b056586ca02a4be3499edc5395e9823a1e92e0a01cd16f"
+    },
+    {
+      "file": "04_HEP/outputs/manuscript/averages/roi_waves_ecgreg.mat",
+      "sha256": "05e73b47fc51f08a23965b59ed860629d4efa81da8bfb451cf1718ef59ee9ba2"
+    }
+  ],
+  "software": {
+    "python": "3.12.7",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "statsmodels": "0.14.6",
+    "h5py": "3.16.0",
+    "matplotlib": "3.10.8",
+    "mne": "1.11.0"
+  }
+}

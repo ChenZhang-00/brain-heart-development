@@ -1,0 +1,36 @@
+{
+  "stage": "movie_responses",
+  "notebook": "run_eliciting_effects.ipynb",
+  "created_utc": "2026-10-30T14:30:58.090575+00:00",
+  "n_subjects": 148,
+  "conditions": [
+    "fear",
+    "happy",
+    "neutral"
+  ],
+  "parameters": {
+    "omnibus_test": "Hotelling repeated-measures F",
+    "posthoc_test": "two-sided paired t",
+    "posthoc_adjustment": "Holm across three contrasts within each measure",
+    "cardiac_summary": "temporal mean of IBI or natural-log HF/LF power"
+  },
+  "inputs": [
+    {
+      "file": "00_data/participants.csv",
+      "sha256": "3709009e54d5bc54b5b056586ca02a4be3499edc5395e9823a1e92e0a01cd16f"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/ecg/hrv/ecg_ts.npz",
+      "sha256": "4bc8446f5c666e865b8db06d5e38914e3cad47bc207bc413cf378dde4c1d5daa"
+    }
+  ],
+  "software": {
+    "python": "3.12.7",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "statsmodels": "0.14.6",
+    "h5py": "3.16.0",
+    "matplotlib": "3.10.8"
+  }
+}

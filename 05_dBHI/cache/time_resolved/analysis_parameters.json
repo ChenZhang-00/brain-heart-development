@@ -1,0 +1,138 @@
+{
+  "cache": "05_dBHI/outputs/manuscript/model",
+  "cache_fingerprint": "6d62788e1193e1793dd42389a1b5fefd938c0aec3bbd7b691cd0eb34c0475952",
+  "bands": [
+    "delta",
+    "theta",
+    "alpha",
+    "beta"
+  ],
+  "log10_bth": true,
+  "log10_htb": true,
+  "htb_floor": 0.00034448521910235286,
+  "transform_order": "per electrode: (htb floor) -> log10 -> ROI spatial mean -> temporal aggregation",
+  "fs": 4,
+  "n_perm": 10000,
+  "alpha": 0.05,
+  "min_len_samples": 20,
+  "seed": 0,
+  "exclude": [],
+  "neutral_truncation": {
+    "sub-047": {
+      "path": "05_dBHI/outputs/manuscript/model/sub-047_dbhi.npz",
+      "sha256": "afb6a0bd78a27bc1edbd467ccab365b1bba933378b1423d3545eea0bacd99804",
+      "segment_s": [
+        0.0,
+        159.342
+      ],
+      "rpeaks_used": 225,
+      "note": "neutral arrays recomputed on 0-159.342 s; fear/happy copied from dbhi_recompute_v2/cache",
+      "neutral": [
+        {
+          "condition": "neutral",
+          "direction": "bth",
+          "n_time": 565,
+          "start_s": 9.5,
+          "end_s": 150.5,
+          "nan_fraction": 0.0
+        },
+        {
+          "condition": "neutral",
+          "direction": "htb",
+          "n_time": 568,
+          "start_s": 8.75,
+          "end_s": 150.5,
+          "nan_fraction": 0.0
+        }
+      ]
+    }
+  },
+  "groups": {
+    "5-6 yrs": [
+      5,
+      6
+    ],
+    "7-8 yrs": [
+      7,
+      8
+    ],
+    "9-10 yrs": [
+      9,
+      10
+    ]
+  },
+  "regions_1based": {
+    "Frontal": [
+      1,
+      32,
+      33,
+      34,
+      35,
+      62,
+      63,
+      5,
+      4,
+      37,
+      3,
+      36,
+      2,
+      61,
+      31,
+      60,
+      30,
+      29
+    ],
+    "Central": [
+      38,
+      6,
+      39,
+      7,
+      27,
+      58,
+      28,
+      59,
+      9,
+      41,
+      8,
+      40,
+      26,
+      57,
+      25,
+      56,
+      24,
+      42,
+      10,
+      43,
+      11,
+      53,
+      22,
+      54,
+      23,
+      55
+    ],
+    "Posterior": [
+      15,
+      14,
+      45,
+      13,
+      44,
+      12,
+      52,
+      21,
+      51,
+      20,
+      19,
+      46,
+      47,
+      48,
+      49,
+      50,
+      16,
+      17,
+      18
+    ]
+  },
+  "across_series_correction": "none; 72 series per band, 288 total",
+  "age_csv_sha256": "3709009e54d5bc54b5b056586ca02a4be3499edc5395e9823a1e92e0a01cd16f",
+  "intensity_csv_sha256": "72175faf6daf11a0ecd5aec5cb2c6e7dbeb7842ca8eb9a8c91e8c14f458b2342"
+}

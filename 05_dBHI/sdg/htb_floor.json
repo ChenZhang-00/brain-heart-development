@@ -1,0 +1,10 @@
+{
+ "htb_floor": 0.00034448521910235286,
+ "htb_floor_definition": "1st percentile of positive heart-to-brain coefficients pooled over 147 children x 3 conditions x 63 channels x 4 EEG bands x 2 HRV bands (time points at 4 Hz; percentile computed on a 1-in-7 subsample)",
+ "n_time_points": 166902120,
+ "frac_nonpositive": 0.024075853560158494,
+ "frac_floored": 0.033847604811730374,
+ "n_subjects": 147,
+ "cache_fingerprint": "6d62788e1193e1793dd42389a1b5fefd938c0aec3bbd7b691cd0eb34c0475952",
+ "date": "2026-10-20"
+}

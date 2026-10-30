@@ -1,0 +1,6 @@
+Age group,Region,Contrast,Window (ms),Cluster (ms),Cluster mass (sum t),Cluster p,dz
+5-6,Frontal,Happy − Neutral,100-300,198–300,127.5,0.009,0.38
+5-6,Frontal,Happy − Neutral,300-500,300–412,142.3,0.009,0.39
+5-6,Central,Fear − Neutral,300-500,318–408,-139.7,0.014,-0.46
+5-6,Posterior,Fear − Happy,300-500,300–364,77.0,0.04,0.35
+7-8,Central,Fear − Happy,100-300,100–178,97.1,0.024,0.37

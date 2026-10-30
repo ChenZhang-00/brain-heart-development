@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the manuscript below."
+title: "Developmental Reorganization of Brain-Heart Interplay during Affective Experience: analysis code"
+authors:
+  - name: "Anonymous (authors withheld for peer review)"
+version: 1.0.0
+date-released: 2026-10-23
+license: MIT
+preferred-citation:
+  type: article
+  title: "Developmental reorganization of brain-heart interplay during affective experience"
+  authors:
+    - name: "Anonymous (authors withheld for peer review)"
+  year: 2026

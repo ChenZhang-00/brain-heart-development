@@ -1,0 +1,7 @@
+{
+  "window_seconds": 15,
+  "start_to_centre_shift_seconds": 7.5,
+  "n_seconds_per_tail": 48,
+  "tie_break": "earlier time",
+  "minimum_run_filter_applied": false
+}

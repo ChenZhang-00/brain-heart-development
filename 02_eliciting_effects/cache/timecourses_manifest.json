@@ -1,0 +1,642 @@
+{
+  "stage": "timecourses",
+  "notebook": "run_eliciting_effects.ipynb",
+  "created_utc": "2026-10-30T14:31:14.210708+00:00",
+  "n_subjects": 148,
+  "conditions": [
+    "fear",
+    "happy",
+    "neutral"
+  ],
+  "parameters": {
+    "n_permutations": 10000,
+    "seed_reset_per_test": 0,
+    "cluster_forming_alpha_two_sided": 0.05,
+    "cluster_p_threshold": 0.05,
+    "minimum_cluster_seconds": 5,
+    "missing_differences": "numpy.nan_to_num before cluster tests",
+    "baseline": "each child's neutral temporal mean",
+    "eeg_samples": "first 176 of 177, after channel log-mean and temporal interpolation",
+    "eeg_display_time_s": [
+      0,
+      175
+    ],
+    "ibi_display_time_s": [
+      0,
+      175.75
+    ],
+    "cross_signal_or_emotion_correction": false,
+    "exported_clusters": "all observed candidates, including p >= 0.05"
+  },
+  "inputs": [
+    {
+      "file": "00_data/participants.csv",
+      "sha256": "3709009e54d5bc54b5b056586ca02a4be3499edc5395e9823a1e92e0a01cd16f"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/ecg/hrv/ecg_ts.npz",
+      "sha256": "4bc8446f5c666e865b8db06d5e38914e3cad47bc207bc413cf378dde4c1d5daa"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-001_movie_EEG_TS.mat",
+      "sha256": "3808284acf7d72366579cc6421dc39e18c61c5b8a3ec5f5773ed8ede65154006"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-002_movie_EEG_TS.mat",
+      "sha256": "c0deb6799eca26efcc1747a3ba0b238d79a036a85c2a986158d85c740c2199a2"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-003_movie_EEG_TS.mat",
+      "sha256": "31805aca9d302126fd37f95ba2cb898c3473d7b9be0ccf5b7c67043125b01d2e"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-004_movie_EEG_TS.mat",
+      "sha256": "e9da9c0067c274d9a72ac93aca79080af8cc156977b1a94be283ba52f8b13e31"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-005_movie_EEG_TS.mat",
+      "sha256": "9a5be5435053fa6eb5cc2ed4db427561fa8bf617268a405d309b8f1567f1f1d8"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-006_movie_EEG_TS.mat",
+      "sha256": "fa311051dbbcf453f00b12aa7b5178bb063709fb5cc8f97fdb43004641fb1ff3"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-007_movie_EEG_TS.mat",
+      "sha256": "14b916bb66d081f1dd20a53f58ba36266bd07023f243d224e974ad62e868eaaf"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-008_movie_EEG_TS.mat",
+      "sha256": "04de2d0b38c712bcdbae4736c923254cbba95e986c1cb72c7694521283f30ec9"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-009_movie_EEG_TS.mat",
+      "sha256": "e4cc6662a71859973dc5d87c7657ab085e3f5a6c1f61d5ca785d9ff8e9068388"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-010_movie_EEG_TS.mat",
+      "sha256": "4972694877c5cef67a321d41c2298d498532cdec70625393a670588130935900"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-011_movie_EEG_TS.mat",
+      "sha256": "3e29e971bb5856da7e306c4cb637451626c6c5b873bc4e55f1f79dcb44b5649b"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-012_movie_EEG_TS.mat",
+      "sha256": "560c2cb199b7a2148a5e30cccc034c5b35eea736e411aa1ef425a63bb1f78b66"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-013_movie_EEG_TS.mat",
+      "sha256": "90f0afe62c40459fc22632d9ae6a91b016919a6f2995fca0d44433acc3046c8f"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-014_movie_EEG_TS.mat",
+      "sha256": "047ab31d1dffb7ea392783a8a004f25f8c6f6a8d10cd586fe4a7533c3a009c37"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-015_movie_EEG_TS.mat",
+      "sha256": "904e506938ad83e5f5c46c2ec7df6b812fce1b942e59979ced58c389203da8ec"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-016_movie_EEG_TS.mat",
+      "sha256": "253740ed8e95874ea2cca25c8f84818954a7085082d71d6d245c733f4305a1ac"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-017_movie_EEG_TS.mat",
+      "sha256": "01bd91494b7950511ecc691b12936bc5da0028f9a8498f1d51e2acf4f446f38f"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-018_movie_EEG_TS.mat",
+      "sha256": "f398dadc42418961e33debca5ccf7ec55ce2db59b13da7231b485eb27c09be96"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-019_movie_EEG_TS.mat",
+      "sha256": "f7060f77a7ff2f3afbe09c995bfb6fed626eb763cf5248d416b1141d133ec02d"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-020_movie_EEG_TS.mat",
+      "sha256": "5226849995697020b6e6d57cdc06b294a6cbe07baee8f5c88a2df44c07527e45"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-021_movie_EEG_TS.mat",
+      "sha256": "11b82a9de1ce4f9c9975e58c62632de8f4746fa43049bd17d35cf25e4402648f"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-022_movie_EEG_TS.mat",
+      "sha256": "3478b71bb480ba9c64752788da6c80815e8595119e8619589d137d151fcd9a30"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-023_movie_EEG_TS.mat",
+      "sha256": "687864b498c54c7bf27a2eae1bab2b5421f0b9ab298e41844b1db84e59427142"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-024_movie_EEG_TS.mat",
+      "sha256": "e7de4ac8bf103a105b9015d6f793cb79ebc3cd4daf19e59eb5b1183351efa30f"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-025_movie_EEG_TS.mat",
+      "sha256": "51629cf878f92fd2d10743b2a9b48eb672cb60f732698a0269c85171ed2877f7"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-026_movie_EEG_TS.mat",
+      "sha256": "f78ad460fec14e126f263273c926e4228f4ea460def599ce597fb39e45050c5c"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-027_movie_EEG_TS.mat",
+      "sha256": "c1c18523f02a8aeb786989babdaf1f5a7a5b480cb22d4391ea2bf0dcdd041627"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-028_movie_EEG_TS.mat",
+      "sha256": "f4d47b9f8e05d7755664447c9972458b8be3b86964f804546b952117046366d6"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-029_movie_EEG_TS.mat",
+      "sha256": "b35563890518c5582ec1452b479a00d1676234c243da1a52221a975db5099209"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-030_movie_EEG_TS.mat",
+      "sha256": "a76b7cc9fca7162a9f8ef170875e2ede329dc1a7de6f29156c6d0df6a31560b4"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-031_movie_EEG_TS.mat",
+      "sha256": "0f5889403eb7eb4745bf4515c7f6477bd577f61d3272c1f7fadeeee4199f25c7"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-032_movie_EEG_TS.mat",
+      "sha256": "560c8cdcddf7322d644d3cb16eae32ef1689db8ba682a157923bc5fd50c23d38"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-033_movie_EEG_TS.mat",
+      "sha256": "45aae52583805e3a0c728289d1a15a5f2f2f9da07a610d861a1d28c49989d883"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-034_movie_EEG_TS.mat",
+      "sha256": "9685df9d304be98aa2d9ab3d72c08c239c5a7291b5393b1a9dc3d3f42d7db640"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-035_movie_EEG_TS.mat",
+      "sha256": "d006ceb1fc653fa905e116c18cfba0723f5fe08d06495b806f14b786837f83f8"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-036_movie_EEG_TS.mat",
+      "sha256": "1016c2078573b81ac88c5af1804dcff980e59c0101ef85549b95d47759b848a2"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-037_movie_EEG_TS.mat",
+      "sha256": "031d6c801547af70cdba5cfc40d6dfdcffa8a0ab42acba1ccb7b0d73d97eab7c"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-038_movie_EEG_TS.mat",
+      "sha256": "f24016d23149dd07a89d5486e48a4d7df4e404ce03686752bb323611917c05f2"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-039_movie_EEG_TS.mat",
+      "sha256": "727f7d6f2bb2fbed4efb64e47bafd2bb626d41f1f3f24ae9eb711455b29421a3"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-040_movie_EEG_TS.mat",
+      "sha256": "52f7eba563ae1b8e99c21c62686fdf6b190d95ce572620487d0e84890dbd6bbd"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-041_movie_EEG_TS.mat",
+      "sha256": "6ab6ef06d4a0d7466555f203e767c3f012a290415cf6db884ff48a4dd496a486"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-042_movie_EEG_TS.mat",
+      "sha256": "ae4548648a3d148a5db628a12e3f66ecfa4d8f120667d4bb6df5af7c2eb8e58f"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-043_movie_EEG_TS.mat",
+      "sha256": "10f90df32e620cd7255796a68755050675de4624b40160c387229fb0ce003633"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-044_movie_EEG_TS.mat",
+      "sha256": "91f41461a661de5339109c824d7093ce28c6273b0806097625db7649cba77f17"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-045_movie_EEG_TS.mat",
+      "sha256": "94c217413aab4ba3aba565c6aa530654354be8acf4badd4fa14e80dc26ab7ce5"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-046_movie_EEG_TS.mat",
+      "sha256": "877cefd79f4b461dac1a63b4e4b34e5cc635c945ec3826f373a849780f562315"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-047_movie_EEG_TS.mat",
+      "sha256": "0534aa220af006d9444c10890a0b9cbc24060537385d7aaeea6625a5d2bd13f3"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-048_movie_EEG_TS.mat",
+      "sha256": "867204d9f6cf5f5f913fb75631dc17e901ff52e7019437e623dd436ae75fad9f"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-049_movie_EEG_TS.mat",
+      "sha256": "74b4d8623658dc870a408fa4e35419107f75658e42dcd92f78f92b3e1d5e9a3a"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-050_movie_EEG_TS.mat",
+      "sha256": "502fa50c0c5c23c7335618dbbaa352d0e1b78613ca2d6a188afb027b652dc587"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-051_movie_EEG_TS.mat",
+      "sha256": "3a2b327af1f1dc7d53cdd76c3e35a185971ae742ecddb4be20d702f3c1b0bd91"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-052_movie_EEG_TS.mat",
+      "sha256": "1d7e0e1e0aaec99cb4647a8b8658de4da4019ef071eb810f991c8d5d8564cd0e"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-053_movie_EEG_TS.mat",
+      "sha256": "c1393bf818a808c902e5bc174553e72cab5aa37fdad6978c423ae12ba30b5279"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-054_movie_EEG_TS.mat",
+      "sha256": "634679fb62030b52b77ba6f3e7cb1445ff8302d9cbac5211e25f6f9a783baba6"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-055_movie_EEG_TS.mat",
+      "sha256": "f351992f47fa213d5c89fd4ea61eb5ae26a191f256a5702e1d4ea4f4a5e3fbe5"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-056_movie_EEG_TS.mat",
+      "sha256": "8908e474c8eee748f5407971ebfb24935bb4c04b4f2647a5932f653a32ad0203"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-057_movie_EEG_TS.mat",
+      "sha256": "94b5580cfe069f42d33a366b719e9df754bab0540f4f7ec45070320171e899e9"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-058_movie_EEG_TS.mat",
+      "sha256": "c22ec2aa6faa02e6dcc90155ddabb698f25b540f549c9894cf568accea281658"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-059_movie_EEG_TS.mat",
+      "sha256": "7be74ec0b2e560f3863fa25ca57b717b142eb8bf19ce7ff3c407ef2214c706ff"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-060_movie_EEG_TS.mat",
+      "sha256": "c6e77e7adc323c1cb2f1596f2b63fe4a88da4098a344c691342e9b6238c40ea8"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-061_movie_EEG_TS.mat",
+      "sha256": "bc0cdd257f67a3cb69ab21333916cd0ec63ba162cfd310ca8aa3d023bb615105"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-062_movie_EEG_TS.mat",
+      "sha256": "4389b4f944f37709ba8a84bb36628982a4f815c1e7f7dd29c47af87abcc7d81f"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-063_movie_EEG_TS.mat",
+      "sha256": "d8ffda7a2127d1e74e1edc1596f47f5b412275b12d8ba06fe86c24c834e97fe1"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-064_movie_EEG_TS.mat",
+      "sha256": "99eec738a6faf7200d96f5d66fc308b162a534921ad8bf841217d018a32ffa6f"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-065_movie_EEG_TS.mat",
+      "sha256": "49086c48ada6f50b6c0e7f6c400bfa4d8be72052eb3629c608de6c2d044b8250"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-066_movie_EEG_TS.mat",
+      "sha256": "80ea582d67077617d53ee8cee00f9fe4576aae9d71ed71bc97d8cfa5b5e45f12"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-067_movie_EEG_TS.mat",
+      "sha256": "a169de3428e15344f194ec5142086eacbf3dabdf2fc4e315fc5260b63d688d94"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-068_movie_EEG_TS.mat",
+      "sha256": "00afc9db7b94de613e087455836d013aaaa7ad77065655b6b10d0f81c1fe0aba"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-069_movie_EEG_TS.mat",
+      "sha256": "d086b5c2ec2b45fce5d17aa6b043dc0670c1ae846505075117f87853e7df5809"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-070_movie_EEG_TS.mat",
+      "sha256": "794eb1ddd446f7fee274079ffc79ee4cb69177ba1cc7cb056654c595982196dc"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-071_movie_EEG_TS.mat",
+      "sha256": "d8a119b027d9a78d003402f78a2c33cb986bfe8e5869cf984ee60315b1d1bbf1"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-072_movie_EEG_TS.mat",
+      "sha256": "c5facb8166a4d55ba2aad2502f03d7c0f44f1e11c25031d9720c1b60659de1d0"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-073_movie_EEG_TS.mat",
+      "sha256": "219a6f3458a177fb324ec70a31c20219e4954f356b772362a667dd94d8d4937d"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-074_movie_EEG_TS.mat",
+      "sha256": "9e1bcde54088a82b98432be91ba571518b343d4f4473f11d44a8fe97bd5951c3"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-075_movie_EEG_TS.mat",
+      "sha256": "a663ee2061609e1bcb9622db6e204e12f4e3cfa74ff6d85691181c4deb823415"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-076_movie_EEG_TS.mat",
+      "sha256": "db641d344c8cc3809d6cf0e38eafbc7adb81ca46ad500ec0bb27db514910aec5"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-077_movie_EEG_TS.mat",
+      "sha256": "38e5140c97e56b18c3e914a9e54c0da916c7a3ae4aeb687d46d7a364e31fb31c"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-078_movie_EEG_TS.mat",
+      "sha256": "9ad60d2d3dff9d73f04e1f9b20891fa515abf2e09a95b7c23bff88a6291388db"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-079_movie_EEG_TS.mat",
+      "sha256": "b9ce41bc0c20fc60cac5f8e2eba46932b365cd72e3020f459f2e0752139d0303"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-080_movie_EEG_TS.mat",
+      "sha256": "7f78529a96a386ce7123ae568ce4468029a57e44473720d2f9fffce53040baca"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-081_movie_EEG_TS.mat",
+      "sha256": "339e3ee07e1aadff2a7a917a6546d20856cbf37c0d70c8e11e8540d436c44180"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-082_movie_EEG_TS.mat",
+      "sha256": "155703a4e07a2a4af18402dcc16d3cdc74b4da5e1c545c26031defc003197538"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-083_movie_EEG_TS.mat",
+      "sha256": "d15fc2e6ac73aec6040e683fc2ad6c7a2a12e726ba2e77dfbf09638e4a51fe48"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-084_movie_EEG_TS.mat",
+      "sha256": "e7301df483841e94d6f0cd30f7c56f57d5043205e7c424732416c8a99e48650b"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-085_movie_EEG_TS.mat",
+      "sha256": "ad3d61bbfff323c17634b4d32493467c8e7d87ec4762a6957d675c1549411e7e"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-086_movie_EEG_TS.mat",
+      "sha256": "c192e9038e8fc52e65d915e9934099fa26f021ced018fd1a016a58ad6d1d873e"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-087_movie_EEG_TS.mat",
+      "sha256": "91f8c53cdcbeaf1045f00426ba360aaa2701050828f82bac2d7b1fcdf1bf5fe0"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-088_movie_EEG_TS.mat",
+      "sha256": "ce61e8823b0c2c9862292bcb7dad3f2281608623feb17bc2462194d4e64c0c4f"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-089_movie_EEG_TS.mat",
+      "sha256": "d34a4b6b4d6db088ccd98d43b67da18369fb887c8bc0f3a34bd4d9a5b809ceb9"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-090_movie_EEG_TS.mat",
+      "sha256": "ecda5b949a6f43537a947efdf03eb06536b275d1b40104416006aa05043897d9"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-091_movie_EEG_TS.mat",
+      "sha256": "b9be97e0368bbd20e653d1ba4318702805d437e39d74cb983561bb20e93bbd63"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-092_movie_EEG_TS.mat",
+      "sha256": "2981620c92a0f1a9713f6c8d560bc30a06401f9312b6e5515a3207696743afca"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-093_movie_EEG_TS.mat",
+      "sha256": "a601241ab7a5433b8421fad7e2d7ab406ab671d24a3df93eb5d508641f4cd9c6"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-094_movie_EEG_TS.mat",
+      "sha256": "33d27010e31a6987c2e780d5d80e90279f202462b9ac162b221e77bf01d06b4c"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-095_movie_EEG_TS.mat",
+      "sha256": "b6f77520958ab0b7e64fee731edcc45a403d911d326d34ef4d787d47b0b3fa5e"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-096_movie_EEG_TS.mat",
+      "sha256": "5100b3846a15acf0c038a6ab5c476e416eabe1276918b8334994d13a481bb480"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-097_movie_EEG_TS.mat",
+      "sha256": "bc5e0d67a6257d1797cce53636b767152cc497c5ad1e666cc1b79759255bcbb9"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-098_movie_EEG_TS.mat",
+      "sha256": "02d340825a341be278bb35a6b5ac5eb520b9e9fda51fc746235855393cada047"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-099_movie_EEG_TS.mat",
+      "sha256": "675f8682c3d425cb2dcba82dfec5732e7fd2f6667e44ea222fe1febcd59cd3c1"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-100_movie_EEG_TS.mat",
+      "sha256": "94710e1ce4ac55a98abfff7bcab88b9b50d7dbbfd38f3f5263ebea112ed38044"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-101_movie_EEG_TS.mat",
+      "sha256": "cd2aaadc94deafe42eb38c999dc12f7a7553d2ed235cbe38399d9e9240eef4ca"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-102_movie_EEG_TS.mat",
+      "sha256": "b02684ca2ef6f0d89ce168acc828ece1358d23015f919a78c04a83543962b4f4"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-103_movie_EEG_TS.mat",
+      "sha256": "204223ea4086f9d3f14f487f2171b3c3e3632872357690c79bb1dbaa5106220b"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-104_movie_EEG_TS.mat",
+      "sha256": "f7fd2bba17580971a4ff2ad9bd04163b9e58c0cf19877522bead1a4d9855f7b7"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-105_movie_EEG_TS.mat",
+      "sha256": "32cea599f932cdef81ae0285ed20ed374deba35fe9f9b0bac7b18b9f8ef9fcf1"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-106_movie_EEG_TS.mat",
+      "sha256": "924045020d50eac0de2f78c59f6e2862326b6b64114b9fa796c64d9463b13389"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-107_movie_EEG_TS.mat",
+      "sha256": "d4416df53f86179ee3d6418c0f1483f43235215307d8b360ffd395afc1a984f3"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-108_movie_EEG_TS.mat",
+      "sha256": "b380269a2a3d39087fc352e1dda1cd5615553893753321a0454890c908ec9221"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-109_movie_EEG_TS.mat",
+      "sha256": "38bff968880923c69a688222b4c06be727e8825cebcf9e370b6288f39ff113b0"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-110_movie_EEG_TS.mat",
+      "sha256": "446ca6c6b6b8df247eae1826eba4b53222e5a8498dc85be4de153b5be428fc67"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-111_movie_EEG_TS.mat",
+      "sha256": "196789e53901f3f26153875da97dc69b8015217692cb6f1040116b698f5a86b6"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-112_movie_EEG_TS.mat",
+      "sha256": "4efabda64b45f0317402191b0277bc923dd541cec25a1bc8e4598c92661fcb01"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-113_movie_EEG_TS.mat",
+      "sha256": "53d525dcd0e9e0e74b32333197e66e3148336731195e08b653bbb38ec6457704"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-114_movie_EEG_TS.mat",
+      "sha256": "2a2fe17345eb93fdf08d41281703dadbba8fde1f037f68596124aa37f84c8df7"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-115_movie_EEG_TS.mat",
+      "sha256": "539bd8cdfae730605e2fd1c378c1f73d4281ab1f7a0e9516d547e06d1a28e24b"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-116_movie_EEG_TS.mat",
+      "sha256": "7d891ec7e376ec53b3ce911cfe80e4d7e51cad871a595706760d304cb9e6d81d"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-117_movie_EEG_TS.mat",
+      "sha256": "1b8009ba04d57de5c8700022407e09fe867bc4ba8b3001acb4eed319d065452f"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-118_movie_EEG_TS.mat",
+      "sha256": "7fe2052e312ced4972fdcaa25654ed780a37b78c51dcdf35eaad6fa6f4fac095"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-119_movie_EEG_TS.mat",
+      "sha256": "01e773302543c905d24fc977d4cf6f10ba8669842b566a95d30c2041f514938a"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-120_movie_EEG_TS.mat",
+      "sha256": "7b8db228039e0974317ff5f078274574cade6fa76eb86a6cb59eb1fceffddc3c"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-121_movie_EEG_TS.mat",
+      "sha256": "83b841a07a3635db982cc7b2d2990c71fb25be28da9caf417057be7f5d2bd209"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-122_movie_EEG_TS.mat",
+      "sha256": "350cb5563d3582e0069dedc38e1fb2b45f9bd8b14c3d8be8f4a13b8779a4df81"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-123_movie_EEG_TS.mat",
+      "sha256": "41de8dfdc1289d869c94007eabaea32abaf08a3ce3fef2f6f5a81dd104389b6a"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-124_movie_EEG_TS.mat",
+      "sha256": "ab84dd2128b12b346e170cc708d6b9110a5427908d57bb2b7a948e557e470cb9"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-125_movie_EEG_TS.mat",
+      "sha256": "06716a28292411ba9c7c9c87e922e9944847f1fd6cef12572838e82f1d21e1b6"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-126_movie_EEG_TS.mat",
+      "sha256": "80d30f2450586a31adb2a5fabacbbce9709d4d7d323efd0390b806366dbe1eea"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-127_movie_EEG_TS.mat",
+      "sha256": "c479c757a5898e93c08560e0401cee85fada5bb6b1ebf94180cff49b31f0def7"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-128_movie_EEG_TS.mat",
+      "sha256": "bcfac56200a8a6f957c5a28befcf453dc7ebe3824943f1082bbc62c79342d0b8"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-129_movie_EEG_TS.mat",
+      "sha256": "f53a2c76820ebb03cf3683440c5f42a8cdbee5dca221b1885b73690027a109b1"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-130_movie_EEG_TS.mat",
+      "sha256": "31d9fbf3250d784a570b685d535c85cd6d85a3908ca99bcbd9be3b47f66cf221"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-131_movie_EEG_TS.mat",
+      "sha256": "b370c442250e63a52484faecdee6909fb580fb47c23cdd35f6403ce69b0ebf86"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-132_movie_EEG_TS.mat",
+      "sha256": "48e7264b1a5e4ad2a159a5eec29ad0e444d18ab4aee198056b90d362526b1993"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-133_movie_EEG_TS.mat",
+      "sha256": "d1e43a222a65a2cb5681b60193eaf3550aaa53f8047ca5fe494a3dc81d7e09bf"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-134_movie_EEG_TS.mat",
+      "sha256": "8b85a4d57c82f7a0ab6d1583fa4455c93bed5611d7ea4d23c7c34e49942e0226"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-135_movie_EEG_TS.mat",
+      "sha256": "2f7eb37158a38d746bdafe4cb7899e53a01b0aec272ac34795d7e8f6299cc971"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-136_movie_EEG_TS.mat",
+      "sha256": "cc67312fb6aec362aa3163340e431cceb58602c6d10bc85f0e3fe6e598669fa8"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-137_movie_EEG_TS.mat",
+      "sha256": "2829db8411f06f3443b1d3cc5786e1e044e8ee77f48c4fb9389099f91caef58a"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-138_movie_EEG_TS.mat",
+      "sha256": "c43635d79b2028d4f9b770cd07ffa7c24d8ca59a1dbb9802dfd62fedb617972b"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-139_movie_EEG_TS.mat",
+      "sha256": "88f2de5388033b873344156b961938df43be27d72ad53fd372d7639be98cdc90"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-140_movie_EEG_TS.mat",
+      "sha256": "ed93d83c9dd21707b3069502db5a624f1b9f4949ddc2187e8b3c8fcf46be929e"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-141_movie_EEG_TS.mat",
+      "sha256": "09799c460a2876bdd4e21f1f1a865776a8b6f9450e23ec9152343ffd9aabfda8"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-142_movie_EEG_TS.mat",
+      "sha256": "c16dfb63aaf4e96add0093d2f67ad4d029e834256818777dfc5bd67a830974b7"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-143_movie_EEG_TS.mat",
+      "sha256": "3633566bcda5e226b37768345f527c6c1fd51edaca1afb5f0bd1fe13726492c9"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-144_movie_EEG_TS.mat",
+      "sha256": "1d62d04fa8f8ddb1e10b4c8d65094ad791c79c16509ed4e3231b792f76275877"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-145_movie_EEG_TS.mat",
+      "sha256": "ffe72b5cd9f09569a11455412906b7e5c50ffc82b0bfa987b2280a41cc030844"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-146_movie_EEG_TS.mat",
+      "sha256": "13d0dc65c2eda0f8893230c36a1848dc4c7c895dcfb77bb9d5e5b01595411b08"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-147_movie_EEG_TS.mat",
+      "sha256": "e7ecf85d5843145bef54b6b763a1bce907ffdfa04bbecf9491b256a87848f936"
+    },
+    {
+      "file": "01_preprocessing/outputs/manuscript/eeg/band_power/sub-148_movie_EEG_TS.mat",
+      "sha256": "5df9f792a7bfe06c024875038428d3363d16dce4edc4c75f0b660c8554d29822"
+    }
+  ],
+  "software": {
+    "python": "3.12.7",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "statsmodels": "0.14.6",
+    "h5py": "3.16.0",
+    "matplotlib": "3.10.8"
+  }
+}

@@ -1,0 +1,15 @@
+Movie,Direction,Age group,n,EEG band,HRV band,Electrodes,Effect,Cluster mass (sum t),Cluster p
+Fearful,Brain→Heart,5-6,50,alpha,LF,46,high > low,126.4,0.016
+Fearful,Brain→Heart,5-6,50,beta,HF,34,high < low,-98.9,0.023
+Fearful,Brain→Heart,5-6,50,beta,LF,21,high > low,54.6,0.038
+Fearful,Brain→Heart,5-6,50,delta,LF,62,high > low,186.4,0.002
+Fearful,Brain→Heart,5-6,50,theta,LF,61,high > low,191.1,0.002
+Fearful,Brain→Heart,7-8,49,beta,HF,47,high < low,-143.8,0.009
+Fearful,Brain→Heart,7-8,49,delta,LF,45,high > low,111.8,0.019
+Fearful,Brain→Heart,9-10,49,delta,LF,21,high > low,48.2,0.036
+Fearful,Brain→Heart,9-10,49,delta,LF,14,high > low,30.8,0.048
+Fearful,Heart→Brain,5-6,50,alpha,HF,8,high > low,21.7,0.029
+Happy,Brain→Heart,7-8,49,delta,HF,15,high > low,35.7,0.049
+Happy,Brain→Heart,9-10,49,delta,HF,63,high > low,202.5,<.001
+Happy,Brain→Heart,9-10,49,theta,HF,53,high > low,136.6,0.014
+Happy,Heart→Brain,5-6,50,delta,HF,9,high < low,-20.3,0.037
