@@ -52,8 +52,8 @@ See the [BVA-io source](https://github.com/sccn/bva-io/blob/master/pop_loadbv.m)
 [ERPLAB requirements](https://github.com/ucdavis/erplab/wiki/Installation).
 Check the linked installation requirements for your MATLAB version and platform.
 Place EEGLAB and FieldTrip in `toolboxes/eeglab/` and `toolboxes/fieldtrip/`
-at the repository root. The `toolboxes/` directory is ignored by Git and is empty
-after cloning. Existing installations can be used without copying: create symbolic
+at the repository root (see `toolboxes/README.md`). Only that README is tracked
+by Git; the toolboxes themselves are not. Existing installations can be used without copying: create symbolic
 links at these two paths, or set the environment variables `DBH_EEGLAB_PATH` and
 `DBH_FIELDTRIP_PATH` before starting the preprocessing notebook
 (see `01_preprocessing/config/preprocessing_config.m`).
